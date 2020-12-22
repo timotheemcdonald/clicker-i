@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* body {
+    background-color: lime;
+} */
+
+.cookie img {
+    height: auto;
+    width: 25%;
+    outline: none;
+}
+
+.cookie {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: grey;
+    color: yellow;
+    font-size: 2rem;
+    width: 50px;
+    margin: auto;
+}
+
+.scoreboard :hover{
+    background-color: rgba(0,0,0,.25);
+}
