@@ -12,7 +12,7 @@
         <span id="score"></span>
     </div>
     <div class="cookie">
-        <img src="cookie.png" alt="A Chocolate Chip Cookie" onClick="increaseScore(1)">
+        <img src="cookie.png" alt="A Chocolate Chip Cookie" onClick="increaseScore(clickingPower)">
     </div>
 
     <div class="shop">
@@ -26,6 +26,12 @@
             <button onClick="buyGramma()">Buy Gramma</button>
             <div>Cost: <span id="grammaCost"></span></div>
             <div>Grammas: <span id="grammas"></span></div>
+        </div>
+
+        <div class="separator">
+            <button onClick="buyClickingPower()">Buy Clicking Power</button>
+            <div>Cost: <span id="clickingPowerCost"></span></div>
+            <div>Current Power: <span id="clickingPower"></span></div>
         </div>
     </div>
     

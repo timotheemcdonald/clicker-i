@@ -1,6 +1,11 @@
 let score = 0;
 document.getElementById("score").innerHTML = score;
 
+let clickingPower = 1;
+let clickingPowerCost = 50;
+document.getElementById("clickingPower").innerHTML = clickingPower;
+document.getElementById("clickingPowerCost").innerHTML = clickingPowerCost;
+
 let cursorCost = 15;
 let cursors = 0;
 document.getElementById("cursorCost").innerHTML = cursorCost;
@@ -36,9 +41,21 @@ function buyGramma(){
 
 }
 
-function increaseScore(amount){
+function buyClickingPower(){
+    if(score >= clickingPowerCost){
+        score = score - clickingPowerCost;
+        clickingPower = clickingPower + 1;
+        clickingPowerCost = Math.round(clickingPowerCost * 1.15);
 
-    score = score + amount;
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("clickingPowerCost").innerHTML = clickingPowerCost;
+        document.getElementById("clickingPower").innerHTML = clickingPower;
+    }
+}
+
+function increaseScore(clickingPower){
+
+    score = score + clickingPower;
     document.getElementById("score").innerHTML = score;  
       
 }
