@@ -12,7 +12,21 @@
         <span id="score"></span>
     </div>
     <div class="cookie">
-        <img src="cookie.png" alt="A Chocolate Chip Cookie" onclick="increaseScore(1)">
+        <img src="cookie.png" alt="A Chocolate Chip Cookie" onClick="increaseScore(1)">
+    </div>
+
+    <div class="shop">
+        <div class="separator">
+        <button onClick="buyCursor()">Buy Cursor</button>
+        <div>Cost: <span id="cursorCost"></span></div>
+        <div>Cursors: <span id="cursors"></span></div>
+    </div>
+
+        <div class="separator">
+            <button onClick="buyGramma()">Buy Gramma</button>
+            <div>Cost: <span id="grammaCost"></span></div>
+            <div>Grammas: <span id="grammas"></span></div>
+        </div>
     </div>
     
 </body>
