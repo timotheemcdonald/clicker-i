@@ -25,6 +25,7 @@ function buyCursor(){
         document.getElementById("score").innerHTML = score;
         document.getElementById("cursorCost").innerHTML = cursorCost;
         document.getElementById("cursors").innerHTML = cursors;
+        updateScorePerSecond();
     }
 }
 
@@ -37,6 +38,7 @@ function buyGramma(){
         document.getElementById("score").innerHTML = score;
         document.getElementById("grammaCost").innerHTML = grammaCost;
         document.getElementById("grammas").innerHTML = grammas;
+        updateScorePerSecond();
     }
 
 }
@@ -58,6 +60,11 @@ function increaseScore(clickingPower){
     score = score + clickingPower;
     document.getElementById("score").innerHTML = score;  
       
+}
+
+function updateScorePerSecond(){
+    scorePerSecond = cursors + grammas * 5;
+    document.getElementById("scorepersecond").innerHTML = scorePerSecond;
 }
 
 setInterval( () => {
