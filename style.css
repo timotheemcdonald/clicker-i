@@ -52,3 +52,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.cookie img {
+    position: relative;
+}
+
+.cookie img:active {
+    transform: scale(1.10);
+}
