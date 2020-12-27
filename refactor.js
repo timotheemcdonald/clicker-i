@@ -24,20 +24,24 @@ let building = {
     name: [
         "Cursor",
         "Grandma",
-        "Oven"
+        "Oven",
+        "Factory"
     ],
     image: [
         "🖱️",
         "👵",
         "🍳",
+        "🏭"
     ],
-    count: [0, 0, 0],
+    count: [0, 0, 0, 0],
     income: [
         1,
         15,
         155,
+        1555
     ],
     cost: [
+        10,
         100,
         1000,
         10000,
