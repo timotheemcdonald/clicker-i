@@ -57,6 +57,10 @@
     position: relative;
 }
 
-.cookie img:active {
+.cookie img:hover {
     transform: scale(1.10);
+}
+
+.cookie img:active {
+    transform: scale(.99);
 }

@@ -67,9 +67,59 @@ function updateScorePerSecond(){
     document.getElementById("scorepersecond").innerHTML = scorePerSecond;
 }
 
+function loadGame(){
+    let savedGame = JSON.parse(localStorage.getItem("gameSave"));
+    if(typeof savedGame.score !== "undefined") score = savedGame.score;
+    if(typeof savedGame.clickingPower !== "undefined") clickingPower = savedGame.clickingPower;
+    if(typeof savedGame.clickingPowerCost !== "undefined") clickingPowerCost = savedGame.clickingPowerCost;
+    if(typeof savedGame.grammas !== "undefined") grammas = savedGame.grammas;
+    if(typeof savedGame.grammaCost !== "undefined") grammaCost = savedGame.grammaCost;
+    if(typeof savedGame.cursors !== "undefined") cursors = savedGame.cursors;
+    if(typeof savedGame.cursorCost !== "undefined") cursorCost = savedGame.cursorCost;
+}
+
+function saveGame(){
+    let gameSave = {
+        score: score,
+        clickingPower: clickingPower,
+        clickingPowerCost: clickingPowerCost,
+        cursorCost: cursorCost,
+        cursors: cursors,
+        grammas: grammas,
+        grammaCost: grammaCost
+    };
+    localStorage.setItem("gameSave", JSON.stringify(gameSave));
+}
+
+function resetGame(){
+    if(confirm("Are you sure you want to reset the game?")){
+        let gameSave = {};
+        localStorage.setItem("gameSave", JSON.stringify(gameSave));
+        location.reload();
+    }
+}
+
+window.onload = function(){
+    loadGame();
+    updateScorePerSecond();
+
+    document.getElementById("clickingPower").innerHTML = clickingPower;
+    document.getElementById("clickingPowerCost").innerHTML = clickingPowerCost;
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("cursorCost").innerHTML = cursorCost;
+    document.getElementById("cursors").innerHTML = cursors;
+    document.getElementById("grammaCost").innerHTML = grammaCost;
+    document.getElementById("grammas").innerHTML = grammas;
+};
+
 setInterval( () => {
     score = score + cursors;
     score = score + grammas * 5;
     document.getElementById("score").innerHTML = score;  
 }, 1000) 
+
+setInterval( () => {
+    saveGame();
+}, 30000)
+// 30000 = 30000ms = 30seconds
 //1000 = 1000ms = 1 second
