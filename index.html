@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicky Click</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="refactor.js" defer></script>
 </head>
 <body>
     <div class="scoreboard">
@@ -13,7 +13,7 @@
         <div><span id="scorepersecond"></span> credits per second</div>
     </div>
     <div class="cookie">
-        <img src="cookie.png" alt="A Chocolate Chip Cookie" onClick="increaseScore(clickingPower)">
+        <img src="cookie.png" alt="A Chocolate Chip Cookie" onClick="game.addToScore(game.clickValue)"></img>
     </div>
 
     <div class="shop">
@@ -22,7 +22,7 @@
     </div>
 
     <div class="shop" id="shopContainer">
-        
+<!--         
         <div class="separator">
         <button onClick="buyCursor()">Buy Cursor</button>
         <div>Cost: <span id="cursorCost"></span></div>
@@ -39,8 +39,20 @@
             <button onClick="buyClickingPower()">Buy Clicking Power</button>
             <div>Cost: <span id="clickingPowerCost"></span></div>
             <div>Current Power: <span id="clickingPower"></span></div>
-        </div>
+        </div> -->
     </div>
     
 </body>
 </html>
+
+<!-- <div class="separator">
+    <button onClick="building.purchase('+i+')">Buy '+building.name[i]+'</button>
+    <div>'+building.image[i]+'</div>
+    <div>Cost: <span id="'+building.cost[i]+'">'+building.cost[i]+'</span></div>
+    <div>'+building.name[i]+' <span id="'+building.name[i]+'"></span></div>
+    <div>Current Amount: <span>'+building.count[i]+'</span></div> -->
+
+<!-- '<div class="separator"><button onClick="building.purchase('+i+')">Buy '+building.name[i]+'</button><div>'+building.image[i]+'</div><div>Cost: <span id="'+building.cost[i]+'">'+building.cost[i]+'</span></div><div>'+building.name[i]+' <span id="'+building.name[i]+'"></span></div><div>Current Amount: <span>'+building.count[i]+'</span></div>' -->
+
+
+</div>
