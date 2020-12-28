@@ -67,7 +67,6 @@ let display = {
     updateShop: function(){
         document.getElementById("shopContainer").innerHTML = "";
         for(i = 0; i<building.name.length; i++){
-            // document.getElementById("shopContainer").innerHTML += '<table class="shopButton unselectable" onclick="building.purchase('+i+')"><tr><td id="image"><div>'+building.image[i]+'</div></td><td id="nameAndCost"><p>'+building.name[i]+'</p><p><span>'+building.cost[i]+'</span> salsa</p></td><td id="amount"><span>'+building.count[i]+'</span></td></tr></table>';
             document.getElementById("shopContainer").innerHTML += '<div class="separator"><div><span class="shopName">'+building.name[i]+' </span></div><button onClick="building.purchase('+i+')">Buy '+building.name[i]+'</button><div>'+building.image[i]+'</div><div>Cost: <span id="'+building.cost[i]+'">'+building.cost[i]+'</span></div><div>Current Amount: <span>'+building.count[i]+'</span></div>'
 
         }

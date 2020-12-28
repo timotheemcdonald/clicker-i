@@ -5,9 +5,9 @@
 
 }
 
-/* body {
-    background-color: lime;
-} */
+body {
+    background-color: grey;
+}
 
 .cookie img {
     height: auto;
@@ -20,6 +20,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    outline: none;
 }
 
 .scoreboard {
@@ -33,6 +35,7 @@
     margin: auto;
     padding: 20px;
     flex-direction: column;
+    border: 1px solid black;
 }
 
 
@@ -46,6 +49,35 @@
     align-items: center;
     flex-direction: column;
     padding: 5px;
+    border: 1px solid black;
+    margin: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+}
+
+#shopContainer {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+}
+
+#shopContainer div {
+    margin-bottom: 5px;
+    background-color: lightslategray;
+}
+#shopContainer button {
+    margin-bottom: 5px;
+}
+
+#shopTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .separator {
