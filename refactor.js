@@ -62,29 +62,47 @@ let building = {
 let upgrade = {
     name: [
         "Stone Fingers",
+        "Iron Fingers",
+        "Stone Clicker",
     ],
     description: [
         "Cursors are twice as efficient",
+        "Cursors are twice as efficient",
+        "Mouse is twice as efficient",
     ],
     image: [
         "👋",
+        "👏",
+        "🖱️",
     ],
     type: [
         "building",
+        "building",
+        "click",
     ],
     cost: [
+        300,
+        500,
         300,
     ],
     buildingIndex: [
         0,
+        0,
+        -1,
     ],
     requirement: [
+        1,
+        5,
         1,
     ],
     bonus: [
         2,
+        2,
+        2,
     ],
     purchased: [
+        false,
+        false,
         false,
     ],
 
@@ -128,7 +146,7 @@ let display = {
             if(!upgrade.purchased[i]){
                 if(upgrade.type[i] == "building" && building.count[upgrade.buildingIndex[i]] >= upgrade.requirement[i]){
                     document.getElementById("upgradeContainer").innerHTML += '<div class="separator"><div>'+upgrade.image[i]+'</div><div>'+upgrade.name[i]+'</div><div>'+upgrade.description[i]+'</div><div>'+upgrade.cost[i]+' credits</div><button onClick="upgrade.purchase('+i+')">Buy '+upgrade.name[i]+'</button></div>';
-                }else if (upgrade.type[i] == "click" && game.totalClicks >= upgrade.requirement[index]){
+                }else if (upgrade.type[i] == "click" && game.totalClicks >= upgrade.requirement[i]){
                     document.getElementById("upgradeContainer").innerHTML += '<div class="separator"><div>'+upgrade.image[i]+'</div><div>'+upgrade.name[i]+'</div><div>'+upgrade.description[i]+'</div><div>'+upgrade.cost[i]+' credits</div><button onClick="upgrade.purchase('+i+')">Buy '+upgrade.name[i]+'</button></div>';
                 }
             }
