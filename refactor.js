@@ -145,7 +145,8 @@ function saveGame(){
         version: game.version,
         buildingCount: building.count,
         buildingIncome: building.income,
-        buildingCost: building.cost
+        buildingCost: building.cost,
+        upgradePurchased: upgrade.purchased,
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
@@ -169,11 +170,15 @@ function loadGame(){
             }
         }
         if (typeof savedGame.buildingCost !== "undefined"){
-            for (i = 0; i < savedGame.buildingCount.length; i++){
+            for (i = 0; i < savedGame.buildingCost.length; i++){
                 building.cost[i] = savedGame.buildingCount[i];
             }
         }
-     
+        if (typeof savedGame.upgradePurchased !== "undefined"){
+            for (i = 0; i < savedGame.upgradePurchased.length; i++){
+                upgrade.purchased[i] = savedGame.upgradePurchased[i];
+            }
+        }
     }
 }
 
