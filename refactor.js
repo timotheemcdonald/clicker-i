@@ -127,6 +127,44 @@ let upgrade = {
     }
 }
 
+let achievement = {
+    name: [
+        "Stone Fingers",
+        "A Humble Start",
+        "Fingertastic",
+    ],
+    description: [
+        "Buy 1 Cursor",
+        "Gather 1 Salsa",
+        "Click the Salsa 1 Time",
+    ],
+    image: [
+        "✨",
+        "💖",
+        "🌟"
+    ],
+    type: [
+        "building",
+        "score",
+        "click",
+    ],
+    requirement: [
+        1,
+        1,
+        1,
+    ],
+    objectIndex: [
+        0,
+        -1,
+        -1,
+    ],
+    awarded: [false, false, false,],
+
+    earn: function(index){
+        this.awarded[index] = true;
+    }
+}
+
 let display = {
     updateScore: function(){
         document.getElementById("score").innerHTML = game.score;
@@ -152,6 +190,15 @@ let display = {
             }
         }
     },
+
+    updateAchievements: function(){
+        document.getElementById("achievementContainer").innerHTML = "";
+        for (i = 0; i < achievement.name.length; i++){
+            if (achievement.awarded[i]){
+                document.getElementById("achievementContainer").innerHTML += '<div class="separator"><div>'+achievement.image[i]+'</div><div>'+achievement.name[i]+'</div><div>'+achievement.description[i]+'</div>';
+            }
+        }
+    }
 }
 
 function saveGame(){
@@ -165,6 +212,7 @@ function saveGame(){
         buildingIncome: building.income,
         buildingCost: building.cost,
         upgradePurchased: upgrade.purchased,
+        achievementAwarded: achievement.awarded,
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
@@ -197,6 +245,11 @@ function loadGame(){
                 upgrade.purchased[i] = savedGame.upgradePurchased[i];
             }
         }
+        if (typeof savedGame.achievementAwarded !== "undefined"){
+            for (i = 0; i < savedGame.achievementAwarded.length; i++){
+                achievement.awarded[i] = savedGame.achievementAwarded[i];
+            }
+        }
     }
 }
 
@@ -217,13 +270,21 @@ window.onload = function(){
     loadGame();
     display.updateScore();
     display.updateUpgrades();
+    display.updateAchievements();
     display.updateShop();
 }
 
 setInterval(function(){
+    for (i=0; i<achievement.name.length; i++){
+        if(achievement.type[i] == "score" && game.totalScore >= achievement.requirement[i]) achievement.earn(i);
+        else if(achievement.type[i] == "click" && game.totalClicks >= achievement.requirement[i]) achievement.earn(i);
+        else if(achievement.type[i] == "building" && building.count[achievement.objectIndex[i]] >= achievement.requirement[i]) achievement.earn(i);
+    }
+
     game.score += game.getScorePerSecond();
     game.totalScore += game.getScorePerSecond();
     display.updateScore();
+    display.updateAchievements();
 }, 1000)
 
 setInterval(function(){
